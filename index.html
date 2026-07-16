@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pritomsreeta Borah — AI Product Manager</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0D1B2A;
+    --navy-mid: #152333;
+    --navy-light: #1E3448;
+    --slate: #3D5A73;
+    --teal: #00C9A7;
+    --teal-dim: #00a589;
+    --cream: #F5F0E8;
+    --cream-dim: #DDD8CF;
+    --white: #ffffff;
+    --text-muted: #8FA3B3;
+    --border: rgba(255,255,255,0.08);
+    --radius: 12px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--navy);
+    color: var(--cream);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 60px;
+    background: rgba(13,27,42,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.02em; color: var(--teal); }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--cream); }
+  .nav-cta { background: var(--teal); color: var(--navy); font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.875rem; padding: 8px 20px; border-radius: 6px; text-decoration: none; transition: background 0.2s; }
+  .nav-cta:hover { background: var(--teal-dim); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 120px 60px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(0,201,167,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-family: 'Inter', sans-serif; font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 20px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--teal); }
+  .hero h1 {
+    font-family: 'Syne', sans-serif; font-weight: 800;
+    font-size: clamp(2.6rem, 5vw, 4.2rem);
+    line-height: 1.1; letter-spacing: -0.02em;
+    max-width: 800px; margin-bottom: 24px;
+  }
+  .hero h1 em { color: var(--teal); font-style: normal; }
+  .hero-sub {
+    font-size: 1.1rem; color: var(--text-muted); max-width: 560px;
+    line-height: 1.7; margin-bottom: 48px;
+  }
+
+  /* IMPACT TICKER — signature element */
+  .impact-ticker {
+    display: flex; gap: 40px; margin-bottom: 52px; flex-wrap: wrap;
+  }
+  .ticker-item { display: flex; flex-direction: column; gap: 4px; }
+  .ticker-num {
+    font-family: 'Syne', sans-serif; font-weight: 800;
+    font-size: 2.4rem; color: var(--cream); line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .ticker-num span { color: var(--teal); }
+  .ticker-label { font-size: 0.78rem; color: var(--text-muted); font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+  .ticker-divider { width: 1px; background: var(--border); align-self: stretch; }
+
+  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary { background: var(--teal); color: var(--navy); font-weight: 700; font-size: 0.9rem; padding: 14px 28px; border-radius: 8px; text-decoration: none; transition: all 0.2s; letter-spacing: 0.01em; }
+  .btn-primary:hover { background: var(--teal-dim); transform: translateY(-1px); }
+  .btn-secondary { border: 1px solid rgba(255,255,255,0.2); color: var(--cream); font-weight: 500; font-size: 0.9rem; padding: 14px 28px; border-radius: 8px; text-decoration: none; transition: all 0.2s; }
+  .btn-secondary:hover { border-color: var(--teal); color: var(--teal); }
+
+  /* SECTIONS */
+  section { padding: 100px 60px; }
+  .section-eyebrow {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 14px;
+  }
+  .section-title {
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    letter-spacing: -0.02em; line-height: 1.15;
+    max-width: 680px; margin-bottom: 16px;
+  }
+  .section-sub { color: var(--text-muted); font-size: 1rem; max-width: 560px; line-height: 1.7; margin-bottom: 56px; }
+
+  /* ABOUT */
+  .about-section { background: var(--navy-mid); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .about-text p { color: var(--text-muted); font-size: 1rem; line-height: 1.8; margin-bottom: 20px; }
+  .about-text p strong { color: var(--cream); font-weight: 600; }
+  .about-highlights { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
+  .highlight-item { display: flex; align-items: flex-start; gap: 14px; }
+  .highlight-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); margin-top: 7px; flex-shrink: 0; }
+  .highlight-text { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+  .highlight-text strong { color: var(--cream); }
+  .about-badges { display: flex; flex-direction: column; gap: 14px; }
+  .badge-card {
+    background: var(--navy-light); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 20px 24px;
+  }
+  .badge-card-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--cream); margin-bottom: 6px; }
+  .badge-card-sub { font-size: 0.82rem; color: var(--text-muted); }
+  .badge-tag { display: inline-block; background: rgba(0,201,167,0.12); color: var(--teal); font-size: 0.72rem; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-top: 10px; letter-spacing: 0.05em; }
+
+  /* SKILLS */
+  .skills-section { background: var(--navy); }
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .skill-card {
+    background: var(--navy-light); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 28px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .skill-card:hover { border-color: var(--teal); transform: translateY(-2px); }
+  .skill-icon { font-size: 1.4rem; margin-bottom: 14px; }
+  .skill-card-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; color: var(--cream); margin-bottom: 14px; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-tag { background: rgba(255,255,255,0.06); color: var(--text-muted); font-size: 0.76rem; font-weight: 500; padding: 4px 10px; border-radius: 4px; }
+  .skill-tag.accent { background: rgba(0,201,167,0.1); color: var(--teal); }
+
+  /* CASE STUDIES */
+  .cases-section { background: var(--navy-mid); }
+  .cases-grid { display: flex; flex-direction: column; gap: 32px; }
+  .case-card {
+    background: var(--navy-light); border: 1px solid var(--border);
+    border-radius: 16px; padding: 40px 48px;
+    display: grid; grid-template-columns: 1fr 340px; gap: 48px; align-items: start;
+    transition: border-color 0.25s;
+  }
+  .case-card:hover { border-color: rgba(0,201,167,0.35); }
+  .case-num { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.75rem; color: var(--teal); letter-spacing: 0.1em; margin-bottom: 12px; }
+  .case-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.4rem; color: var(--cream); margin-bottom: 10px; line-height: 1.25; }
+  .case-org { font-size: 0.82rem; color: var(--text-muted); font-weight: 500; margin-bottom: 20px; }
+  .case-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--teal); margin-bottom: 6px; }
+  .case-text { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; }
+  .case-metrics { display: flex; flex-direction: column; gap: 14px; }
+  .case-metric { display: flex; align-items: baseline; gap: 10px; }
+  .case-metric-num { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.6rem; color: var(--teal); line-height: 1; }
+  .case-metric-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.4; }
+  .case-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .case-tag { font-size: 0.73rem; font-weight: 600; padding: 4px 10px; border-radius: 4px; background: rgba(255,255,255,0.05); color: var(--text-muted); }
+
+  /* SERVICES */
+  .services-section { background: var(--navy); }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .service-card {
+    background: var(--navy-light); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 32px;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: var(--teal); transform: scaleX(0); transition: transform 0.3s;
+    transform-origin: left;
+  }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-card:hover { border-color: rgba(0,201,167,0.2); transform: translateY(-2px); }
+  .service-num { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.7rem; color: var(--slate); letter-spacing: 0.1em; margin-bottom: 16px; }
+  .service-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--cream); margin-bottom: 12px; }
+  .service-text { font-size: 0.875rem; color: var(--text-muted); line-height: 1.7; }
+
+  /* CONTACT */
+  .contact-section {
+    background: var(--navy-mid);
+    text-align: center; padding: 100px 60px;
+  }
+  .contact-inner { max-width: 600px; margin: 0 auto; }
+  .contact-section .section-title { max-width: 100%; }
+  .contact-section .section-sub { max-width: 100%; margin-left: auto; margin-right: auto; }
+  .contact-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 8px; }
+  .contact-link {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--navy-light); border: 1px solid var(--border);
+    color: var(--cream); font-size: 0.875rem; font-weight: 500;
+    padding: 12px 22px; border-radius: 8px; text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .contact-link:hover { border-color: var(--teal); color: var(--teal); }
+  .availability { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,201,167,0.1); border: 1px solid rgba(0,201,167,0.25); color: var(--teal); font-size: 0.8rem; font-weight: 600; padding: 8px 16px; border-radius: 20px; margin-bottom: 40px; }
+  .avail-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy); border-top: 1px solid var(--border);
+    padding: 32px 60px; display: flex; justify-content: space-between; align-items: center;
+  }
+  footer p { font-size: 0.8rem; color: var(--text-muted); }
+
+  /* COUNTER ANIMATION */
+  @keyframes countUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  .ticker-num { animation: countUp 0.8s ease forwards; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    section, .hero { padding: 80px 24px; }
+    .hero { padding-top: 100px; }
+    .about-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .case-card { grid-template-columns: 1fr; gap: 28px; padding: 28px; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .impact-ticker { gap: 24px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+  @media (max-width: 560px) {
+    .skills-grid, .services-grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ticker-num, .avail-dot { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">PB</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Hire me</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-eyebrow">AI Product Manager · Bangalore</div>
+  <h1>I build AI platforms that <em>move the needle.</em></h1>
+  <p class="hero-sub">
+    10+ years shipping decision-intelligence products — from agentic AI platforms on LangChain/LangGraph to supply chain control towers across 12+ global markets.
+  </p>
+
+  <!-- IMPACT TICKER — the signature element -->
+  <div class="impact-ticker">
+    <div class="ticker-item">
+      <div class="ticker-num" id="t1">$<span id="n1">0</span>M</div>
+      <div class="ticker-label">Working capital freed</div>
+    </div>
+    <div class="ticker-divider"></div>
+    <div class="ticker-item">
+      <div class="ticker-num"><span id="n2">0</span><span>%</span></div>
+      <div class="ticker-label">Forecast accuracy lift</div>
+    </div>
+    <div class="ticker-divider"></div>
+    <div class="ticker-item">
+      <div class="ticker-num"><span id="n3">0</span><span>+</span></div>
+      <div class="ticker-label">Global markets</div>
+    </div>
+    <div class="ticker-divider"></div>
+    <div class="ticker-item">
+      <div class="ticker-num"><span id="n4">0</span><span>+</span></div>
+      <div class="ticker-label">Years of experience</div>
+    </div>
+  </div>
+
+  <div class="hero-ctas">
+    <a href="#work" class="btn-primary">See my work</a>
+    <a href="#contact" class="btn-secondary">Let's talk</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="section-eyebrow">About me</div>
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-title">Where supply chain depth meets AI product thinking</div>
+      <p>I'm Pritomsreeta — a Product Manager who started as a business analyst moving freight across 120+ markets and evolved into building production-grade agentic AI platforms for enterprise leadership.</p>
+      <p>My edge is rare: I speak the language of <strong>supply chain planners, data scientists, and C-suite executives</strong> — and I use that to ship products that close the gap between fragmented data and real decisions.</p>
+      <p>Today I lead product strategy for multi-agent AI systems built on LangChain and LangGraph at UPL, while staying hands-on with Figma prototyping, A/B testing, and engineering API design.</p>
+      <div class="about-highlights">
+        <div class="highlight-item">
+          <div class="highlight-dot"></div>
+          <div class="highlight-text"><strong>IIM Bangalore</strong> — Executive Education in Digital Operations & Supply Chain</div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-dot"></div>
+          <div class="highlight-text">Worked across <strong>Accenture, Capgemini, Ernst & Young, UPL</strong> — always at the intersection of product and data</div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-dot"></div>
+          <div class="highlight-text">Open to <strong>Senior PM / AI PM roles</strong> (hybrid or remote) and fractional consulting engagements</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-badges">
+      <div class="badge-card">
+        <div class="badge-card-title">Current role</div>
+        <div class="badge-card-sub">Product Manager, UPL Ltd — Building multi-agent AI decision platforms</div>
+        <span class="badge-tag">July 2025 – Present</span>
+      </div>
+      <div class="badge-card">
+        <div class="badge-card-title">Ernst & Young</div>
+        <div class="badge-card-sub">Senior Consultant – PM across 12+ global markets, AI-driven planning solutions</div>
+        <span class="badge-tag">2023 – 2025</span>
+      </div>
+      <div class="badge-card">
+        <div class="badge-card-title">Capgemini</div>
+        <div class="badge-card-sub">Product Owner – Forecasting and planning products for global enterprise clients</div>
+        <span class="badge-tag">2021 – 2023</span>
+      </div>
+      <div class="badge-card">
+        <div class="badge-card-title">Earlier career</div>
+        <div class="badge-card-sub">Accenture (Senior BA) · Transport Corporation of India (BA) — Planning, logistics, 3PL</div>
+        <span class="badge-tag">2015 – 2021</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section" id="skills">
+  <div class="section-eyebrow">Skills & stack</div>
+  <div class="section-title">What I bring to every product</div>
+  <p class="section-sub">A rare combination of modern AI architecture knowledge and deep enterprise domain expertise — built across a decade of shipping real products.</p>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon">🤖</div>
+      <div class="skill-card-title">AI & agentic product</div>
+      <div class="skill-tags">
+        <span class="skill-tag accent">Agentic AI</span>
+        <span class="skill-tag accent">Multi-agent systems</span>
+        <span class="skill-tag accent">LangChain</span>
+        <span class="skill-tag accent">LangGraph</span>
+        <span class="skill-tag">LLM applications</span>
+        <span class="skill-tag">RAG</span>
+        <span class="skill-tag">Knowledge graphs</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📐</div>
+      <div class="skill-card-title">Product craft</div>
+      <div class="skill-tags">
+        <span class="skill-tag accent">Product strategy</span>
+        <span class="skill-tag accent">Roadmapping</span>
+        <span class="skill-tag">PRDs & user stories</span>
+        <span class="skill-tag">A/B testing</span>
+        <span class="skill-tag">Figma prototyping</span>
+        <span class="skill-tag">User research</span>
+        <span class="skill-tag">Agile / Scrum</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📦</div>
+      <div class="skill-card-title">Supply chain domain</div>
+      <div class="skill-tags">
+        <span class="skill-tag accent">S&OP</span>
+        <span class="skill-tag accent">Demand planning</span>
+        <span class="skill-tag accent">Control towers</span>
+        <span class="skill-tag">Inventory optimization</span>
+        <span class="skill-tag">EXIM intelligence</span>
+        <span class="skill-tag">3PL networks</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📊</div>
+      <div class="skill-card-title">Data & analytics</div>
+      <div class="skill-tags">
+        <span class="skill-tag accent">SQL</span>
+        <span class="skill-tag accent">Power BI</span>
+        <span class="skill-tag accent">Databricks</span>
+        <span class="skill-tag">Statistical forecasting</span>
+        <span class="skill-tag">Data modelling</span>
+        <span class="skill-tag">API architecture</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🚀</div>
+      <div class="skill-card-title">GTM & launch</div>
+      <div class="skill-tags">
+        <span class="skill-tag">End-to-end launch</span>
+        <span class="skill-tag">Pilot → beta → rollout</span>
+        <span class="skill-tag">Stakeholder alignment</span>
+        <span class="skill-tag">Feature adoption</span>
+        <span class="skill-tag">Discovery sessions</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🛠</div>
+      <div class="skill-card-title">Tools</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Jira</span>
+        <span class="skill-tag">Confluence</span>
+        <span class="skill-tag">Figma</span>
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">Databricks</span>
+        <span class="skill-tag">Notion</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="cases-section" id="work">
+  <div class="section-eyebrow">Selected work</div>
+  <div class="section-title">Projects that shipped and delivered</div>
+  <p class="section-sub">Four case studies showing how I take a problem from discovery to measurable outcome — with technical depth and business results.</p>
+  <div class="cases-grid">
+
+    <!-- Case 1 -->
+    <div class="case-card">
+      <div>
+        <div class="case-num">01 · UPL Ltd · 2025</div>
+        <div class="case-title">Multi-agent AI executive intelligence platform</div>
+        <div class="case-org">Built on LangChain · LangGraph · Knowledge Graph architecture</div>
+        <div class="case-label">Problem</div>
+        <div class="case-text">Senior leadership at UPL was making decisions from 6+ fragmented data systems — EXIM data, FX signals, market intelligence — with no unified real-time view. Manual review workflows were error-prone and slow.</div>
+        <div class="case-label">My role</div>
+        <div class="case-text">Led end-to-end product strategy and design for the platform, overseeing a 9-person pod across data science, engineering, and design. Also acted as product designer, building all Figma prototypes.</div>
+        <div class="case-label">What I built</div>
+        <div class="case-text">A production-grade multi-agent AI platform consolidating EXIM, FX, and market signals into a single real-time decision layer. Architected the agent orchestration layer on LangChain/LangGraph, defined API contracts for real-time data integration, and ran structured A/B tests to validate agent response formats.</div>
+        <div class="case-tags">
+          <span class="case-tag">Agentic AI</span><span class="case-tag">LangChain</span><span class="case-tag">LangGraph</span><span class="case-tag">Knowledge Graph</span><span class="case-tag">Figma</span>
+        </div>
+      </div>
+      <div class="case-metrics">
+        <div class="case-metric"><div class="case-metric-num">$22M</div><div class="case-metric-desc">Working capital freed in a single quarter</div></div>
+        <div class="case-metric"><div class="case-metric-num">30%</div><div class="case-metric-desc">Reduction in planning exceptions</div></div>
+        <div class="case-metric"><div class="case-metric-num">72→100</div><div class="case-metric-desc">Leadership users onboarded within 2 quarters</div></div>
+        <div class="case-metric"><div class="case-metric-num">45%</div><div class="case-metric-desc">Cut in manual review effort (LLM forecasting engine)</div></div>
+      </div>
+    </div>
+
+    <!-- Case 2 -->
+    <div class="case-card">
+      <div>
+        <div class="case-num">02 · Ernst & Young · 2023–2025</div>
+        <div class="case-title">AI-driven planning solutions across 12+ global markets</div>
+        <div class="case-org">Senior Consultant – Product Management</div>
+        <div class="case-label">Problem</div>
+        <div class="case-text">Global FMCG and enterprise clients were running planning on siloed, manual workflows across dozens of geographies — no consistent view, no forecast accuracy, no scalable product operating model.</div>
+        <div class="case-label">My role</div>
+        <div class="case-text">Directed cross-functional pods (~10 data scientists, 14 data engineers, 5 visualization specialists per product line) across multiple concurrent global engagements.</div>
+        <div class="case-label">What I built</div>
+        <div class="case-text">End-to-end product strategy and roadmap for AI-driven planning solutions. Led structured user interviews with client stakeholders, translated findings into PRDs and user stories, and orchestrated product launches from concept → beta → full GTM rollout with Figma prototyping and A/B testing.</div>
+        <div class="case-tags">
+          <span class="case-tag">GTM</span><span class="case-tag">User research</span><span class="case-tag">PRDs</span><span class="case-tag">A/B testing</span><span class="case-tag">Figma</span>
+        </div>
+      </div>
+      <div class="case-metrics">
+        <div class="case-metric"><div class="case-metric-num">40%</div><div class="case-metric-desc">Improvement in forecast accuracy</div></div>
+        <div class="case-metric"><div class="case-metric-num">30%</div><div class="case-metric-desc">Lift in feature adoption</div></div>
+        <div class="case-metric"><div class="case-metric-num">15%</div><div class="case-metric-desc">Reduction in forecast bias</div></div>
+        <div class="case-metric"><div class="case-metric-num">12+</div><div class="case-metric-desc">Global markets delivered concurrently</div></div>
+      </div>
+    </div>
+
+    <!-- Case 3 -->
+    <div class="case-card">
+      <div>
+        <div class="case-num">03 · Capgemini · 2021–2023</div>
+        <div class="case-title">Forecasting & planning product for global enterprise clients</div>
+        <div class="case-org">Product Owner</div>
+        <div class="case-label">Problem</div>
+        <div class="case-text">Enterprise clients lacked real-time visibility into product lifecycle performance, leading to stockouts, excess inventory, and planning inefficiencies that cost revenue.</div>
+        <div class="case-label">My role</div>
+        <div class="case-text">Owned design and delivery of forecasting and planning products, partnering directly with business stakeholders to prioritize a scalable product backlog.</div>
+        <div class="case-label">What I built</div>
+        <div class="case-text">Decision-support dashboards giving stakeholders real-time lifecycle visibility, alongside forecasting products that reduced manual planning overhead. Translated requirements into user stories and a scalable, prioritized backlog.</div>
+        <div class="case-tags">
+          <span class="case-tag">Product ownership</span><span class="case-tag">Dashboards</span><span class="case-tag">Forecasting</span><span class="case-tag">Backlog</span>
+        </div>
+      </div>
+      <div class="case-metrics">
+        <div class="case-metric"><div class="case-metric-num">22%</div><div class="case-metric-desc">Adoption of new planning dashboards</div></div>
+        <div class="case-metric"><div class="case-metric-num">20%</div><div class="case-metric-desc">Improvement in planning efficiency</div></div>
+        <div class="case-metric"><div class="case-metric-num">15%</div><div class="case-metric-desc">Improvement in forecast accuracy</div></div>
+        <div class="case-metric"><div class="case-metric-num">10%</div><div class="case-metric-desc">Revenue protected through reduced stockouts</div></div>
+      </div>
+    </div>
+
+    <!-- Case 4 -->
+    <div class="case-card">
+      <div>
+        <div class="case-num">04 · Accenture · 2017–2021</div>
+        <div class="case-title">Planning & inventory optimization across 120+ market locations</div>
+        <div class="case-org">Senior Business Analyst</div>
+        <div class="case-label">Problem</div>
+        <div class="case-text">Fragmented planning across 3 distribution hubs and 120+ market locations was causing chronic stockouts, excess inventory, and poor forecast accuracy — eroding margins and customer trust.</div>
+        <div class="case-label">My role</div>
+        <div class="case-text">Led planning and inventory optimization initiatives, building the analytical foundation that would later become my product instinct.</div>
+        <div class="case-label">What I built</div>
+        <div class="case-text">A unified planning and inventory optimization framework across all distribution hubs and market locations — including forecasting models, replenishment logic, and reporting that gave operations leadership a consistent decision view.</div>
+        <div class="case-tags">
+          <span class="case-tag">Inventory optimization</span><span class="case-tag">Forecasting</span><span class="case-tag">Supply chain</span><span class="case-tag">Analytics</span>
+        </div>
+      </div>
+      <div class="case-metrics">
+        <div class="case-metric"><div class="case-metric-num">75%</div><div class="case-metric-desc">Forecast accuracy achieved</div></div>
+        <div class="case-metric"><div class="case-metric-num">30%</div><div class="case-metric-desc">Reduction in stock-outs</div></div>
+        <div class="case-metric"><div class="case-metric-num">20%</div><div class="case-metric-desc">Reduction in excess inventory</div></div>
+        <div class="case-metric"><div class="case-metric-num">120+</div><div class="case-metric-desc">Market locations optimized</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="section-eyebrow">Freelance & consulting</div>
+  <div class="section-title">How I work with clients</div>
+  <p class="section-sub">Available for project-based and fractional engagements across five areas where I've delivered measurable outcomes for global enterprises.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">SERVICE 01</div>
+      <div class="service-title">AI product strategy & roadmap</div>
+      <div class="service-text">From defining your AI vision to shipping a production-grade product — I help enterprises translate AI capabilities into a clear roadmap, build the right tech architecture, and get to adoption fast.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">SERVICE 02</div>
+      <div class="service-title">Executive dashboards & decision intelligence</div>
+      <div class="service-text">Design and build decision-intelligence layers that consolidate fragmented enterprise data into a single real-time view for leadership — so decisions are made on signals, not gut feel.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">SERVICE 03</div>
+      <div class="service-title">Supply chain & demand planning transformation</div>
+      <div class="service-text">Audit and redesign your demand planning and S&OP processes, replacing manual workflows with AI-powered recommendation engines that improve accuracy and cut planning effort.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">SERVICE 04</div>
+      <div class="service-title">AI in supply chain</div>
+      <div class="service-text">Identify where agentic AI and LLMs can replace error-prone, manual supply chain review processes — and build the product strategy to implement it at enterprise scale.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">SERVICE 05</div>
+      <div class="service-title">End-to-end product discovery & launch</div>
+      <div class="service-text">User research, PRDs, prototyping, A/B testing, beta rollout, and GTM — I run the full product launch playbook for enterprises that need a hands-on PM without the full-time overhead.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="availability"><div class="avail-dot"></div> Open to senior PM roles & consulting</div>
+    <div class="section-title">Let's build something that matters</div>
+    <p class="section-sub" style="margin-left: auto; margin-right: auto;">Whether you're hiring for a Senior or AI PM role, or looking for a product partner on your next AI or supply chain initiative — I'd love to hear from you.</p>
+    <div class="contact-links">
+      <a href="mailto:pritomsreeta.borah22@alumni.iimb.ac.in" class="contact-link">✉ Email me</a>
+      <a href="https://www.linkedin.com/in/pritomsreetaborah" target="_blank" class="contact-link">in LinkedIn</a>
+      <a href="tel:+918638355854" class="contact-link">📞 +91 86383 55854</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Pritomsreeta Borah. All rights reserved.</p>
+  <p>Bangalore · Open to hybrid & remote</p>
+</footer>
+
+<script>
+  // Animated counter for impact ticker
+  function animateCounter(el, target, duration, prefix, suffix) {
+    let start = 0;
+    const step = target / (duration / 16);
+    const timer = setInterval(() => {
+      start = Math.min(start + step, target);
+      el.textContent = (prefix || '') + Math.floor(start) + (suffix || '');
+      if (start >= target) clearInterval(timer);
+    }, 16);
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        setTimeout(() => animateCounter(document.getElementById('n1'), 22, 1200), 0);
+        setTimeout(() => animateCounter(document.getElementById('n2'), 40, 1400), 200);
+        setTimeout(() => animateCounter(document.getElementById('n3'), 12, 1000), 400);
+        setTimeout(() => animateCounter(document.getElementById('n4'), 10, 900), 600);
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const ticker = document.querySelector('.impact-ticker');
+  if (ticker) observer.observe(ticker);
+</script>
+</body>
+</html>
