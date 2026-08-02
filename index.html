@@ -4,219 +4,321 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Pritomsreeta Borah — AI Product Manager</title>
-<meta name="description" content="AI Product Manager with 10+ years across supply chain and enterprise AI. Currently leading 3 AI products at UPL — multi-agent platforms, LLM forecasting, and control tower."/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<meta name="description" content="AI Product Manager with 10+ years across supply chain and enterprise AI. Building the Multi-Agent Executive Intelligence Platform and Business Control Tower at UPL."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
 :root {
-  --cream: #F7F2EA;
-  --cream-2: #EFE9DE;
-  --cream-3: #E6DDD1;
-  --ink: #1C1917;
-  --ink-2: #292524;
-  --muted: #78716C;
-  --muted-2: #A8A29E;
-  --green: #1A6B3C;
-  --green-dim: #155C33;
-  --green-light: rgba(26,107,60,0.08);
-  --border: rgba(28,25,23,0.1);
-  --border-2: rgba(28,25,23,0.18);
+  --charcoal: #F5F0E4;
+  --panel: #EBE4D3;
+  --panel-2: #E0D7C1;
+  --ivory: #1C1A15;
+  --muted: #5C5648;
+  --muted-2: #6B6455;
+  --amber: #1F6B3D;
+  --amber-dim: #17512E;
+  --rust: #A6392F;
+  --border: rgba(28,26,21,0.12);
+  --border-2: rgba(28,26,21,0.22);
+  --amber-light: rgba(31,107,61,0.08);
 }
+
 html { scroll-behavior: smooth; }
-body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--ink); line-height: 1.6; overflow-x: hidden; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--charcoal);
+  color: var(--ivory);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+.mono { font-family: 'JetBrains Mono', monospace; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
 
-/* SCROLLBAR */
-::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-track { background: var(--cream); }
-::-webkit-scrollbar-thumb { background: var(--green); border-radius: 2px; }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--charcoal); }
+::-webkit-scrollbar-thumb { background: var(--amber-dim); }
 
-/* NAV */
+
+
+/* ===== NAV ===== */
 nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   display: flex; justify-content: space-between; align-items: center;
-  padding: 24px 64px;
-  background: rgba(247,242,234,0.95);
-  backdrop-filter: blur(20px);
+  padding: 18px 56px;
+  background: rgba(245,240,228,0.92);
+  backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
 }
-.nav-logo { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; color: var(--green); text-transform: uppercase; }
-.nav-links { display: flex; gap: 36px; list-style: none; }
-.nav-links a { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 400; letter-spacing: 0.02em; transition: color 0.2s; }
-.nav-links a:hover { color: var(--ink); }
-.nav-resume { background: transparent; border: 1px solid var(--border-hover); color: var(--ink); font-size: 12px; font-weight: 500; padding: 8px 18px; border-radius: 4px; text-decoration: none; letter-spacing: 0.04em; transition: all 0.2s; }
-.nav-resume:hover { background: var(--green-dim); }
+.nav-id { display: flex; align-items: center; gap: 10px; }
+.nav-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--amber); animation: blink 2.4s ease-in-out infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.25} }
+.nav-logo { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; color: var(--ivory); }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+  font-family: 'JetBrains Mono', monospace; color: var(--muted); text-decoration: none;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--amber); }
+.nav-resume {
+  font-family: 'JetBrains Mono', monospace;
+  background: transparent; border: 1px solid var(--border-2); color: var(--ivory);
+  font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 8px 16px; text-decoration: none; transition: all 0.2s;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+.nav-resume:hover { border-color: var(--amber); color: var(--amber); background: var(--amber-light); }
 
-/* HERO */
+/* ===== HERO ===== */
 .hero {
+  position: relative; z-index: 1;
   min-height: 100vh;
   display: flex; flex-direction: column; justify-content: center;
-  padding: 140px 64px 80px;
-  max-width: 1100px;
+  padding: 150px 56px 72px;
+  max-width: 1180px; margin: 0 auto;
+  border-bottom: 1px solid var(--border);
 }
-.hero-tag {
-  font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--green); margin-bottom: 28px;
-  display: flex; align-items: center; gap: 12px;
+.callsign {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber);
+  margin-bottom: 32px;
 }
-.hero-tag::before { content: ''; width: 32px; height: 1px; background: var(--green); }
+.callsign .pulse { width: 6px; height: 6px; border-radius: 50%; background: var(--amber); animation: blink 2s ease-in-out infinite; flex-shrink:0; }
+.callsign .sep { color: var(--muted-2); }
+
 .hero h1 {
-  font-size: clamp(3rem, 6vw, 5.5rem);
-  font-family: 'Playfair Display', Georgia, serif;
-  font-weight: 400; line-height: 1.05;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-  margin-bottom: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  font-weight: 700; line-height: 1.02; letter-spacing: -0.02em;
+  color: var(--ivory); margin-bottom: 14px;
 }
-.hero h1 strong { font-weight: 700; }
-.hero h1 em { color: var(--green); font-style: italic; font-weight: 400; }
+.hero-subtitle {
+  font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+  margin-bottom: 24px;
+}
+.hero-subtitle strong { color: var(--amber); }
 .hero-sub {
-  font-size: 1.05rem; color: var(--muted);
-  max-width: 560px; line-height: 1.8;
-  margin-top: 28px; margin-bottom: 48px;
-  font-weight: 300;
+  font-size: 1.02rem; color: var(--muted); max-width: 580px; line-height: 1.85;
+  margin-bottom: 40px; font-weight: 300;
 }
-.hero-sub strong { color: var(--ink-2); font-weight: 500; }
-.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+.hero-sub strong { color: var(--ivory); font-weight: 500; }
+
+.hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 56px; }
 .btn-primary {
-  background: var(--green); color: #ffffff;
-  font-size: 13px; font-weight: 600; padding: 13px 28px;
-  border-radius: 4px; text-decoration: none;
-  letter-spacing: 0.04em; transition: all 0.2s;
+  font-family: 'JetBrains Mono', monospace;
+  background: var(--amber); color: var(--charcoal);
+  font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 13px 26px; text-decoration: none; transition: all 0.2s;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
 }
-.btn-primary:hover { background: var(--green-dim); }
+.btn-primary:hover { background: var(--amber-dim); }
 .btn-ghost {
-  border: 1px solid var(--border-hover); color: var(--ink-2);
-  font-size: 13px; font-weight: 400; padding: 13px 28px;
-  border-radius: 4px; text-decoration: none;
-  letter-spacing: 0.02em; transition: all 0.2s;
+  font-family: 'JetBrains Mono', monospace;
+  border: 1px solid var(--border-2); color: var(--ivory);
+  font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 12px 24px; text-decoration: none; transition: all 0.2s;
+  display: inline-flex; align-items: center; gap: 8px;
 }
-.btn-ghost:hover { border-color: var(--green); color: var(--green); }
+.btn-ghost:hover { border-color: var(--amber); color: var(--amber); background: var(--amber-light); }
 
-/* TICKER */
-.ticker {
-  display: flex; gap: 0; margin-top: 64px;
-  border: 1px solid var(--border);
-  border-radius: 8px; overflow: hidden;
-  background: var(--cream-2);
+/* ===== SPLIT-FLAP BOARD (signature element) ===== */
+.board-frame {
+  border: 1px solid var(--border-2);
+  background: var(--panel);
+  padding: 22px 24px;
+  position: relative;
 }
-.ticker-item {
-  flex: 1; padding: 24px 28px;
-  border-right: 1px solid var(--border);
+.board-frame::before {
+  content: 'LIVE READOUT'; position: absolute; top: -9px; left: 20px;
+  background: var(--charcoal); padding: 0 8px;
+  font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 600;
+  letter-spacing: 0.14em; color: var(--muted-2);
 }
-.ticker-item:last-child { border-right: none; }
-.ticker-num {
-  font-size: 2rem; font-weight: 700;
-  color: var(--ink); letter-spacing: -0.04em;
-  line-height: 1; margin-bottom: 6px;
-  font-family: 'Playfair Display', Georgia, serif;
+.board-rows { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.board-row {
+  padding: 8px 18px; border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; gap: 10px;
 }
-.ticker-num span { color: var(--green); }
-.ticker-label { font-size: 10px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; }
+.board-row:last-child { border-right: none; }
+.board-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 9.5px; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted);
+  min-height: 26px; line-height: 1.4;
+}
+.board-value { display: flex; align-items: flex-end; gap: 2px; perspective: 400px; }
+.flap-static { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 1.5rem; color: var(--amber); }
+.flap-group { display: flex; gap: 2px; }
+.flap-char {
+  position: relative; width: 24px; height: 36px;
+  background: var(--panel-2); border-radius: 2px; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 1.4rem; color: var(--amber);
+  transform-style: preserve-3d;
+  border: 1px solid var(--border-2);
+}
+.flap-char::after {
+  content: ''; position: absolute; left: 0; right: 0; top: 50%;
+  height: 1px; background: rgba(28,26,21,0.35); transform: translateY(-0.5px); z-index: 2;
+}
+.flap-char.flip { animation: flapFlip 0.22s ease-in; }
+@keyframes flapFlip {
+  0% { transform: rotateX(0deg); }
+  50% { transform: rotateX(-90deg); }
+  51% { transform: rotateX(90deg); }
+  100% { transform: rotateX(0deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flap-char.flip { animation: none; }
+  .nav-dot, .callsign .pulse, .avail-dot { animation: none; }
+}
 
-/* SECTIONS */
-section { padding: 64px 64px; max-width: 1100px; margin: 0 auto; }
-.section-num { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--green); margin-bottom: 16px; }
+/* ===== SECTIONS ===== */
+section { position: relative; z-index: 1; padding: 72px 56px; max-width: 1180px; margin: 0 auto; }
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber);
+  margin-bottom: 20px; display: inline-flex; align-items: center; gap: 6px;
+}
 .section-title {
-  font-size: clamp(1.8rem, 3vw, 2.8rem);
-  font-family: 'Playfair Display', Georgia, serif;
-  font-weight: 400; letter-spacing: -0.01em;
-  line-height: 1.15; margin-bottom: 16px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.7rem, 3vw, 2.5rem); font-weight: 600; letter-spacing: -0.01em;
+  line-height: 1.2; margin-bottom: 16px; color: var(--ivory);
 }
-.section-title strong { font-weight: 700; }
-.section-sub { color: var(--muted); font-size: 1rem; max-width: 520px; line-height: 1.8; margin-bottom: 56px; font-weight: 300; }
+.section-sub { color: var(--muted); font-size: 0.98rem; max-width: 540px; line-height: 1.8; margin-bottom: 52px; font-weight: 300; }
 
-/* FULL WIDTH SECTIONS */
-.full-width { max-width: 100%; border-top: 1px solid var(--border); background: var(--cream-2); }
-.full-width-inner { max-width: 1100px; margin: 0 auto; padding: 64px 64px; }
+.full-width { max-width: 100%; border-top: 1px solid var(--border); background: var(--panel); position: relative; z-index: 1; }
+.full-width-inner { max-width: 1180px; margin: 0 auto; padding: 72px 56px; }
 
-/* ABOUT */
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-.about-text p { color: var(--muted); font-size: 1rem; line-height: 1.9; margin-bottom: 20px; font-weight: 300; }
-.about-text p strong { color: var(--ink); font-weight: 500; }
-.about-timeline { display: flex; flex-direction: column; gap: 0; }
-.timeline-item {
-  padding: 20px 0; border-bottom: 1px solid var(--border);
-  display: grid; grid-template-columns: 100px 1fr; gap: 24px;
+/* ===== ABOUT ===== */
+.about-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 72px; align-items: start; }
+.about-text p { color: var(--muted); font-size: 0.98rem; line-height: 1.9; margin-bottom: 18px; font-weight: 300; }
+.about-text p strong { color: var(--ivory); font-weight: 500; }
+
+.log-list { display: flex; flex-direction: column; }
+.log-row {
+  display: grid; grid-template-columns: 96px 1fr; gap: 20px;
+  padding: 16px 0; border-bottom: 1px solid var(--border);
 }
-.timeline-item:first-child { border-top: 1px solid var(--border); }
-.timeline-date { font-size: 11px; color: var(--muted); letter-spacing: 0.04em; padding-top: 3px; }
-.timeline-content {}
-.timeline-role { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
-.timeline-org { font-size: 13px; color: var(--muted); }
-.timeline-tag { display: inline-block; font-size: 10px; font-weight: 600; padding: 3px 10px; border-radius: 20px; background: var(--green-light); color: var(--green); margin-top: 6px; letter-spacing: 0.04em; border: 1px solid rgba(26,107,60,0.15); }
-
-/* SKILLS */
-.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-.skill-cell { background: var(--cream); padding: 28px 32px; transition: background 0.2s; }
-.skill-cell:hover { background: var(--cream-3); }
-.skill-cell-title { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin-bottom: 14px; }
-.skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-.skill-tag { font-size: 12px; color: var(--ink); padding: 6px 12px; background: var(--cream-2); border: 1px solid var(--border-2); border-radius: 6px; transition: all 0.2s; font-weight: 400; }
-.skill-tag:hover { background: var(--green-light); border-color: var(--green); color: var(--green); }
-.skill-tag.hi { color: var(--ink); background: var(--cream-3); border-color: var(--border-2); font-weight: 500; }
-
-/* CASE STUDIES */
-.cases-list { display: flex; flex-direction: column; gap: 0; }
-.case-item {
-  padding: 40px 0; border-bottom: 1px solid var(--border);
-  display: grid; grid-template-columns: 64px 1fr 280px; gap: 40px; align-items: start;
+.log-row:first-child { border-top: 1px solid var(--border); }
+.log-date { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted-2); letter-spacing: 0.03em; padding-top: 2px; }
+.log-role { font-size: 14px; font-weight: 500; color: var(--ivory); margin-bottom: 2px; }
+.log-org { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.02em; }
+.log-active {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 0.1em;
+  color: var(--amber); border: 1px solid rgba(31,107,61,0.35); padding: 2px 8px; margin-top: 7px;
+  text-transform: uppercase;
 }
-.case-item:first-child { border-top: 1px solid var(--border); }
-.case-num-big { font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: 0.08em; padding-top: 4px; }
-.case-body {}
-.case-status { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
-.status-shipped { color: var(--green); }
-.status-poc { color: #f5a623; }
-.status-dot { width: 5px; height: 5px; border-radius: 50%; }
-.status-shipped .status-dot { background: var(--green); }
-.status-poc .status-dot { background: #f5a623; }
-.case-title-big { font-size: 1.15rem; font-weight: 600; color: var(--ink); margin-bottom: 6px; line-height: 1.3; }
-.case-org-line { font-size: 12px; color: var(--muted); margin-bottom: 16px; }
-.case-section-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin-bottom: 5px; margin-top: 14px; }
-.case-section-text { font-size: 13px; color: var(--muted); line-height: 1.7; font-weight: 300; }
-.case-tags-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
-.case-tag-sm { font-size: 11px; color: var(--muted); padding: 3px 8px; border: 1px solid var(--border); border-radius: 3px; }
-.case-metrics-col { display: flex; flex-direction: column; gap: 16px; padding-top: 4px; }
-.metric-item { }
-.metric-num { font-size: 1.5rem; font-weight: 700; color: var(--ink); letter-spacing: -0.03em; line-height: 1; margin-bottom: 3px; font-family: 'Playfair Display', Georgia, serif; }
-.metric-num.accent { color: var(--green); }
-.metric-desc { font-size: 11px; color: var(--muted); line-height: 1.4; }
+.log-active .pulse { width: 5px; height: 5px; border-radius: 50%; background: var(--amber); animation: blink 2s ease-in-out infinite; }
 
-/* CONTACT */
-.contact-wrap { text-align: center; padding: 64px 64px; border-top: 1px solid var(--border); background: var(--cream-2); }
-.contact-avail { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin-bottom: 28px; }
-.avail-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: pulse 2s ease-in-out infinite; }
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
-.contact-title { font-size: clamp(2rem, 4vw, 3.5rem); font-family: 'Playfair Display', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; margin-bottom: 16px; }
-.contact-title strong { font-weight: 700; }
-.contact-sub { color: var(--muted); font-size: 1rem; max-width: 480px; margin: 0 auto 40px; line-height: 1.8; font-weight: 300; }
+/* ===== SKILLS (ID plates) ===== */
+.plate-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+.plate-cell { background: var(--charcoal); padding: 26px 28px; }
+.plate-title {
+  font-family: 'JetBrains Mono', monospace; font-size: 10.5px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); margin-bottom: 16px;
+}
+.plate-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.plate-tag {
+  font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--muted);
+  padding: 5px 10px 5px 12px; border: 1px solid var(--border-2);
+  clip-path: polygon(6px 0, 100% 0, 100% 100%, 0 100%, 0 6px);
+  transition: all 0.2s; letter-spacing: 0.01em;
+}
+.plate-tag:hover { border-color: var(--amber); color: var(--amber); background: var(--amber-light); }
+.plate-tag.hi { color: var(--ivory); border-color: var(--border-2); background: var(--panel-2); font-weight: 500; }
+.plate-tag.hi:hover { color: var(--amber); border-color: var(--amber); }
+
+/* ===== WORK / MANIFEST LOG ===== */
+.manifest-list { display: flex; flex-direction: column; gap: 0; }
+.manifest-item {
+  position: relative;
+  padding: 36px 0; border-bottom: 1px solid var(--border);
+  display: grid; grid-template-columns: 1fr 260px; gap: 40px; align-items: start;
+  transition: border-color 0.25s;
+}
+.manifest-item:first-child { border-top: 1px solid var(--border); }
+.manifest-item::before, .manifest-item::after,
+.manifest-item .corner-tl, .manifest-item .corner-br { content: none; }
+.manifest-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.manifest-no { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted-2); letter-spacing: 0.1em; }
+.stamp {
+  font-family: 'JetBrains Mono', monospace; font-size: 9.5px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 4px 11px; border: 1.5px dashed rgba(31,107,61,0.5);
+  color: var(--amber); transform: rotate(-2deg); display: inline-block;
+}
+.manifest-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.2rem; font-weight: 600; color: var(--ivory); margin-bottom: 6px; line-height: 1.3; }
+.manifest-org { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); margin-bottom: 18px; letter-spacing: 0.02em; }
+.manifest-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--amber); margin: 16px 0 6px;
+}
+.manifest-text { font-size: 13.5px; color: var(--muted); line-height: 1.75; font-weight: 300; }
+.manifest-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+.manifest-tag { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--muted); padding: 3px 9px; border: 1px solid var(--border); }
+.manifest-link {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 20px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600;
+  letter-spacing: 0.05em; text-transform: uppercase; color: var(--amber);
+  text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s;
+}
+.manifest-link:hover { border-bottom-color: var(--amber); }
+
+.readout-col { display: flex; flex-direction: column; gap: 18px; padding-top: 2px; }
+.readout-item { border-left: 2px solid var(--border-2); padding-left: 14px; }
+.readout-num { font-family: 'JetBrains Mono', monospace; font-size: 1.4rem; font-weight: 700; color: var(--amber); line-height: 1; margin-bottom: 4px; letter-spacing: -0.01em; }
+.readout-num.accent { color: var(--amber); font-weight: 800; }
+.readout-desc { font-size: 11px; color: var(--muted); line-height: 1.4; }
+
+/* ===== CONTACT ===== */
+.contact-wrap { text-align: center; padding: 80px 56px; border-top: 1px solid var(--border); background: var(--panel); position: relative; z-index: 1; }
+.contact-avail {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--amber); margin-bottom: 26px;
+  border: 1px solid rgba(31,107,61,0.3); padding: 6px 14px;
+}
+.avail-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--amber); animation: blink 2s ease-in-out infinite; }
+.contact-title { font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.9rem, 4vw, 3.2rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; color: var(--ivory); }
+.contact-sub { color: var(--muted); font-size: 0.98rem; max-width: 480px; margin: 0 auto 36px; line-height: 1.8; font-weight: 300; }
 .contact-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
-.contact-link { border: 1.5px solid var(--border-2); color: var(--ink); font-size: 13px; padding: 12px 24px; border-radius: 6px; text-decoration: none; transition: all 0.25s; background: var(--cream); }
-.contact-link:hover { border-color: var(--green); color: var(--green); background: var(--green-light); }
+.contact-link {
+  font-family: 'JetBrains Mono', monospace;
+  border: 1px solid var(--border-2); color: var(--ivory); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 12px 22px; text-decoration: none; transition: all 0.2s; background: var(--charcoal);
+}
+.contact-link:hover { border-color: var(--amber); color: var(--amber); background: var(--amber-light); }
 
-/* FOOTER */
-footer { padding: 24px 64px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: var(--cream-2); }
-footer p { font-size: 11px; color: var(--muted); }
-footer a { font-size: 11px; color: var(--green); text-decoration: none; }
+/* ===== FOOTER ===== */
+footer { position: relative; z-index: 1; padding: 22px 56px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: var(--charcoal); }
+footer p, footer a { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--muted-2); letter-spacing: 0.04em; text-decoration: none; }
+footer a:hover { color: var(--amber); }
 
-/* RESPONSIVE */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
-  nav { padding: 20px 24px; }
+  nav { padding: 16px 22px; }
   .nav-links { display: none; }
-  .hero, section { padding: 80px 24px; }
-  .hero { padding-top: 110px; }
-  .full-width-inner { padding: 80px 24px; }
-  .about-grid { grid-template-columns: 1fr; gap: 48px; }
-  .skills-grid { grid-template-columns: 1fr 1fr; }
-  .case-item { grid-template-columns: 1fr; gap: 24px; }
-  .case-num-big { display: none; }
-  .ticker { flex-wrap: wrap; }
-  .ticker-item { flex: 0 0 50%; border-bottom: 1px solid var(--border); }
+  .hero, section, .contact-wrap { padding-left: 22px; padding-right: 22px; }
+  .hero { padding-top: 100px; }
+  .full-width-inner { padding: 60px 22px; }
+  .about-grid { grid-template-columns: 1fr; gap: 44px; }
+  .plate-grid { grid-template-columns: 1fr 1fr; }
+  .board-rows { grid-template-columns: 1fr 1fr; }
+  .board-row { border-bottom: 1px solid var(--border); }
+  .manifest-item { grid-template-columns: 1fr; gap: 22px; }
   footer { flex-direction: column; gap: 8px; text-align: center; }
 }
 @media (max-width: 560px) {
-  .skills-grid { grid-template-columns: 1fr; }
-  .ticker-item { flex: 0 0 100%; }
+  .plate-grid { grid-template-columns: 1fr; }
+  .board-rows { grid-template-columns: 1fr; }
+  .flap-char { width: 20px; height: 30px; font-size: 1.1rem; }
+  .flap-static { font-size: 1.1rem; }
 }
 </style>
 </head>
@@ -224,102 +326,120 @@ footer a { font-size: 11px; color: var(--green); text-decoration: none; }
 
 <!-- NAV -->
 <nav>
-  <span class="nav-logo">PB</span>
+  <div class="nav-id">
+    <span class="nav-dot"></span>
+    <span class="nav-logo">PB</span>
+  </div>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#work">Work</a></li>
+    <li><a href="#about">Identity</a></li>
+    <li><a href="#skills">Stack</a></li>
+    <li><a href="#work">Log</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="Pritomsreeta_Borah_Resume.pdf" download class="nav-resume">↓ Resume</a>
+  <a href="Pritomsreeta_Borah_Resume.pdf" download class="nav-resume">⇩ Resume</a>
 </nav>
 
 <!-- HERO -->
-<div style="border-bottom: 1px solid var(--border);">
 <div class="hero">
-  <div class="hero-tag">AI Product Manager · Bangalore</div>
-  <h1><strong>Pritomsreeta</strong><br><em>Borah.</em></h1>
+  <div class="callsign"><span class="pulse"></span> AI PRODUCT MANAGER <span class="sep">·</span> BANGALORE <span class="sep">·</span> CHANNEL OPEN</div>
+  <h1>Pritomsreeta Borah</h1>
+  <div class="hero-subtitle">Callsign: <strong>Decision Intelligence &amp; Supply Chain AI</strong></div>
   <p class="hero-sub">
-    I build <strong>AI platforms that move the needle</strong> — from production-grade multi-agent systems on LangChain/LangGraph to supply chain decision intelligence across 12+ global markets.
+    I build <strong>AI platforms that move the needle</strong> — from a Multi-Agent Executive Intelligence Platform running at 1,000+ monthly active users to a Business Control Tower that freed $22M in working capital in a single quarter.
   </p>
   <div class="hero-ctas">
-    <a href="#work" class="btn-primary">View work</a>
-    <a href="https://app.notion.com/p/Product-Portfolio-Pritomsreeta-Borah-39f2756c0a0980c8b715da5ff02a9f84?source=copy_link" target="_blank" class="btn-ghost">Case studies →</a>
-    <a href="Pritomsreeta_Borah_Resume.pdf" download class="btn-ghost">↓ Resume</a>
+    <a href="#work" class="btn-primary">View the log →</a>
+    <a href="https://app.notion.com/p/Product-Portfolio-Pritomsreeta-Borah-39f2756c0a0980c8b715da5ff02a9f84?source=copy_link" target="_blank" class="btn-ghost">Case files ↗</a>
+    <a href="Pritomsreeta_Borah_Resume.pdf" download class="btn-ghost">⇩ Resume</a>
   </div>
 
-  <!-- TICKER -->
-  <div class="ticker">
-    <div class="ticker-item">
-      <div class="ticker-num">$<span id="n1">0</span>M</div>
-      <div class="ticker-label">Working capital freed</div>
-    </div>
-    <div class="ticker-item">
-      <div class="ticker-num"><span id="n2">0</span><span style="color:var(--green)">%</span></div>
-      <div class="ticker-label">Forecast accuracy lift</div>
-    </div>
-    <div class="ticker-item">
-      <div class="ticker-num"><span id="n3">0</span><span style="color:var(--green)">+</span></div>
-      <div class="ticker-label">Global markets</div>
-    </div>
-    <div class="ticker-item">
-      <div class="ticker-num"><span id="n4">0</span><span style="color:var(--green)">+</span></div>
-      <div class="ticker-label">Years experience</div>
+  <!-- SPLIT-FLAP BOARD -->
+  <div class="board-frame">
+    <div class="board-rows">
+      <div class="board-row">
+        <div class="board-label">Working capital freed<br/>(Control Tower)</div>
+        <div class="board-value">
+          <span class="flap-static">$</span>
+          <span class="flap-group" id="fg1" data-target="22" data-pad="2"></span>
+          <span class="flap-static">M</span>
+        </div>
+      </div>
+      <div class="board-row">
+        <div class="board-label">Monthly active users<br/>(Multi-Agent Platform)</div>
+        <div class="board-value">
+          <span class="flap-group" id="fg2" data-target="1000" data-pad="4"></span>
+          <span class="flap-static">+</span>
+        </div>
+      </div>
+      <div class="board-row">
+        <div class="board-label">Global markets<br/>delivered (EY)</div>
+        <div class="board-value">
+          <span class="flap-group" id="fg3" data-target="12" data-pad="2"></span>
+          <span class="flap-static">+</span>
+        </div>
+      </div>
+      <div class="board-row">
+        <div class="board-label">Years of product<br/>&amp; AI experience</div>
+        <div class="board-value">
+          <span class="flap-group" id="fg4" data-target="10" data-pad="2"></span>
+          <span class="flap-static">+</span>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 </div>
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="section-num">01 — About</div>
+  <div class="eyebrow">⟦ 01 ⟧ Identity</div>
   <div class="about-grid">
     <div>
-      <div class="section-title"><strong>Where supply chain depth</strong><br>meets AI product thinking</div>
+      <div class="section-title">Where supply chain depth<br/>meets AI product thinking</div>
       <div class="about-text">
-        <p>I'm Pritomsreeta — a Product Manager who started as a business analyst moving freight across 120+ markets and evolved into building production-grade agentic AI platforms for enterprise leadership.</p>
-        <p>My edge is rare: I speak the language of <strong>supply chain planners, data scientists, and C-suite executives</strong> — and I use that to ship products that close the gap between fragmented data and real decisions.</p>
-        <p>Today I'm leading 3 AI products simultaneously at UPL — a multi-agent executive intelligence platform, an LLM-powered forecasting engine, and a supply chain control tower in POC — while staying hands-on with Figma, LangChain/LangGraph, and engineering API design.</p>
+        <p>Ten years ago I was reconciling freight manifests and hunting root causes by hand — chasing down why a forecast was wrong before it turned into a stockout. That's where I learned to read a supply chain like a story, not a spreadsheet.</p>
+        <p>That instinct followed me into AI. I translate between people who rarely agree — planners who trust their gut, engineers who trust their models, executives who just want the answer — and ship products all three can live with.</p>
+        <p>Right now, that means running two products out of one 12-person pod at UPL: a Multi-Agent Platform giving leadership a real-time view of the business, and a Control Tower that's already freed $22M in working capital. Built on LangChain, LangGraph, n8n, Lovable. Shipped, not slideware.</p>
       </div>
       <div style="margin-top:32px; display:flex; gap:12px; flex-wrap:wrap;">
-        <a href="#contact" class="btn-primary" style="font-size:12px; padding:10px 20px;">Let's talk</a>
-        <a href="Pritomsreeta_Borah_Resume.pdf" download class="btn-ghost" style="font-size:12px; padding:10px 20px;">↓ Download resume</a>
+        <a href="#contact" class="btn-primary" style="padding:11px 22px; font-size:11px;">Open a channel</a>
+        <a href="Pritomsreeta_Borah_Resume.pdf" download class="btn-ghost" style="padding:10px 22px; font-size:11px;">⇩ Download resume</a>
       </div>
     </div>
-    <div class="about-timeline">
-      <div class="timeline-item">
-        <div class="timeline-date">2025 –<br>Now</div>
-        <div class="timeline-content">
-          <div class="timeline-role">Product Manager</div>
-          <div class="timeline-org">UPL Ltd · Bangalore</div>
+    <div class="log-list">
+      <div class="log-row">
+        <div class="log-date">2025 —<br/>NOW</div>
+        <div>
+          <div class="log-role">Product Manager</div>
+          <div class="log-org">UPL LTD · BANGALORE</div>
+          <div class="log-active"><span class="pulse"></span> Active</div>
         </div>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-date">2023 –<br>2025</div>
-        <div class="timeline-content">
-          <div class="timeline-role">Senior Consultant — PM</div>
-          <div class="timeline-org">Ernst & Young · Bangalore</div>
+      <div class="log-row">
+        <div class="log-date">2023 —<br/>2025</div>
+        <div>
+          <div class="log-role">Senior Consultant — PM</div>
+          <div class="log-org">ERNST &amp; YOUNG · BANGALORE</div>
         </div>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-date">2021 –<br>2023</div>
-        <div class="timeline-content">
-          <div class="timeline-role">Product Owner</div>
-          <div class="timeline-org">Capgemini · Bangalore</div>
+      <div class="log-row">
+        <div class="log-date">2021 —<br/>2023</div>
+        <div>
+          <div class="log-role">Product Owner</div>
+          <div class="log-org">CAPGEMINI · BANGALORE</div>
         </div>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-date">2017 –<br>2021</div>
-        <div class="timeline-content">
-          <div class="timeline-role">Senior Business Analyst</div>
-          <div class="timeline-org">Accenture · Noida</div>
+      <div class="log-row">
+        <div class="log-date">2017 —<br/>2021</div>
+        <div>
+          <div class="log-role">Senior Business Analyst</div>
+          <div class="log-org">ACCENTURE · NOIDA</div>
         </div>
       </div>
-      <div class="timeline-item" style="border-bottom:none;">
-        <div class="timeline-date">2015 –<br>2017</div>
-        <div class="timeline-content">
-          <div class="timeline-role">Business Analyst</div>
-          <div class="timeline-org">Transport Corp of India · Mumbai</div>
+      <div class="log-row" style="border-bottom:none;">
+        <div class="log-date">2015 —<br/>2017</div>
+        <div>
+          <div class="log-role">Business Analyst</div>
+          <div class="log-org">TRANSPORT CORP OF INDIA · MUMBAI</div>
         </div>
       </div>
     </div>
@@ -329,219 +449,212 @@ footer a { font-size: 11px; color: var(--green); text-decoration: none; }
 <!-- SKILLS -->
 <div class="full-width" id="skills">
 <div class="full-width-inner">
-  <div class="section-num">02 — Skills & Stack</div>
-  <div class="section-title" style="margin-bottom:40px;"><strong>What I bring</strong> to every product</div>
-  <div class="skills-grid">
-    <div class="skill-cell">
-      <div class="skill-cell-title">Agentic AI</div>
-      <div class="skill-tags">
-        <span class="skill-tag hi">LangChain</span>
-        <span class="skill-tag hi">LangGraph</span>
-        <span class="skill-tag hi">Multi-Agent Systems</span>
-        <span class="skill-tag">RAG</span>
-        <span class="skill-tag">Knowledge Graphs</span>
-        <span class="skill-tag">LLM Applications</span>
-        <span class="skill-tag">Google ADK</span>
+  <div class="eyebrow">⟦ 02 ⟧ Stack</div>
+  <div class="section-title" style="margin-bottom:44px;">What I bring to every product</div>
+  <div class="plate-grid">
+    <div class="plate-cell">
+      <div class="plate-title">Agentic AI</div>
+      <div class="plate-tags">
+        <span class="plate-tag">LangChain</span>
+        <span class="plate-tag">LangGraph</span>
+        <span class="plate-tag">Multi-Agent Systems</span>
+        <span class="plate-tag">RAG</span>
+        <span class="plate-tag">Knowledge Graphs</span>
+        <span class="plate-tag">LLM Applications</span>
+        <span class="plate-tag">Speech-to-Text</span>
+        <span class="plate-tag">Text-to-Speech</span>
       </div>
     </div>
-    <div class="skill-cell">
-      <div class="skill-cell-title">Product craft</div>
-      <div class="skill-tags">
-        <span class="skill-tag hi">Product Strategy</span>
-        <span class="skill-tag hi">Roadmapping</span>
-        <span class="skill-tag">PRDs</span>
-        <span class="skill-tag">User Research</span>
-        <span class="skill-tag">A/B Testing</span>
-        <span class="skill-tag">Figma</span>
-        <span class="skill-tag">GTM</span>
-        <span class="skill-tag">Agile/Scrum</span>
+    <div class="plate-cell">
+      <div class="plate-title">Product craft</div>
+      <div class="plate-tags">
+        <span class="plate-tag">Product Strategy</span>
+        <span class="plate-tag">Roadmapping</span>
+        <span class="plate-tag">PRDs</span>
+        <span class="plate-tag">User Research</span>
+        <span class="plate-tag">A/B Testing</span>
+        <span class="plate-tag">Figma</span>
+        <span class="plate-tag">GTM</span>
+        <span class="plate-tag">Mobile App Design</span>
       </div>
     </div>
-    <div class="skill-cell">
-      <div class="skill-cell-title">Supply chain</div>
-      <div class="skill-tags">
-        <span class="skill-tag hi">S&OP</span>
-        <span class="skill-tag hi">Demand Planning</span>
-        <span class="skill-tag hi">Control Towers</span>
-        <span class="skill-tag">Inventory Optimization</span>
-        <span class="skill-tag">EXIM Intelligence</span>
-        <span class="skill-tag">Statistical Forecasting</span>
+    <div class="plate-cell">
+      <div class="plate-title">Supply chain</div>
+      <div class="plate-tags">
+        <span class="plate-tag">S&amp;OP</span>
+        <span class="plate-tag">Demand Planning</span>
+        <span class="plate-tag">Control Towers</span>
+        <span class="plate-tag">Inventory Optimization</span>
+        <span class="plate-tag">EXIM Intelligence</span>
+        <span class="plate-tag">Statistical Forecasting</span>
       </div>
     </div>
-    <div class="skill-cell">
-      <div class="skill-cell-title">Data & Analytics</div>
-      <div class="skill-tags">
-        <span class="skill-tag hi">Databricks</span>
-        <span class="skill-tag hi">Power BI</span>
-        <span class="skill-tag">SQL</span>
-        <span class="skill-tag">PySpark</span>
-        <span class="skill-tag">Delta Lake</span>
-        <span class="skill-tag">Data Modelling</span>
-        <span class="skill-tag">Azure AI</span>
+    <div class="plate-cell">
+      <div class="plate-title">Data &amp; analytics</div>
+      <div class="plate-tags">
+        <span class="plate-tag">Databricks</span>
+        <span class="plate-tag">Power BI</span>
+        <span class="plate-tag">SQL</span>
+        <span class="plate-tag">PySpark</span>
+        <span class="plate-tag">Delta Lake</span>
+        <span class="plate-tag">Azure AI</span>
       </div>
     </div>
-    <div class="skill-cell">
-      <div class="skill-cell-title">Architecture</div>
-      <div class="skill-tags">
-        <span class="skill-tag hi">API Integration</span>
-        <span class="skill-tag">FastAPI</span>
-        <span class="skill-tag">PostgreSQL</span>
-        <span class="skill-tag">SSE Streaming</span>
-        <span class="skill-tag">Agent Orchestration</span>
+    <div class="plate-cell">
+      <div class="plate-title">Architecture</div>
+      <div class="plate-tags">
+        <span class="plate-tag">API Integration</span>
+        <span class="plate-tag">FastAPI</span>
+        <span class="plate-tag">PostgreSQL</span>
+        <span class="plate-tag">SSE Streaming</span>
+        <span class="plate-tag">Agent Orchestration</span>
       </div>
     </div>
-    <div class="skill-cell">
-      <div class="skill-cell-title">Tools</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Jira</span>
-        <span class="skill-tag">Confluence</span>
-        <span class="skill-tag">Notion</span>
-        <span class="skill-tag">Figma</span>
-        <span class="skill-tag">Databricks</span>
-        <span class="skill-tag">Power BI</span>
+    <div class="plate-cell">
+      <div class="plate-title">Tools &amp; prototyping</div>
+      <div class="plate-tags">
+        <span class="plate-tag">n8n</span>
+        <span class="plate-tag">Lovable</span>
+        <span class="plate-tag">Figma</span>
+        <span class="plate-tag">Jira</span>
+        <span class="plate-tag">Notion</span>
+        <span class="plate-tag">Confluence</span>
       </div>
     </div>
   </div>
 </div>
 </div>
 
-<!-- CASE STUDIES -->
+<!-- WORK / MANIFEST LOG -->
 <section id="work">
-  <div class="section-num">03 — Work</div>
-  <div class="section-title" style="margin-bottom: 8px;"><strong>6 products.</strong> Real outcomes.</div>
-  <p class="section-sub">Currently leading 3 AI products simultaneously at UPL. Previously shipped across EY, Capgemini, and Accenture.</p>
+  <div class="eyebrow">⟦ 03 ⟧ Log</div>
+  <div class="section-title" style="margin-bottom: 8px;">5 shipped products. Real outcomes.</div>
+  <p class="section-sub">Currently running two flagship AI products at UPL — the Multi-Agent Executive Intelligence Platform and the Business Control Tower. Previously shipped across EY, Capgemini, and Accenture.</p>
 
-  <div class="cases-list">
+  <div class="manifest-list">
 
     <!-- 01 -->
-    <div class="case-item">
-      <div class="case-num-big">01</div>
-      <div class="case-body">
-        <div class="case-status status-shipped"><span class="status-dot"></span> Shipped</div>
-        <div class="case-title-big">Multi-Agent AI Executive Intelligence Platform</div>
-        <div class="case-org-line">UPL Ltd · 2025 · LangChain · LangGraph · Knowledge Graph · 9-person pod</div>
-        <div class="case-section-label">Problem</div>
-        <div class="case-section-text">Senior leadership making decisions across 6+ fragmented systems — EXIM, FX, commodity, market news — with no unified real-time view.</div>
-        <div class="case-section-label">What I built</div>
-        <div class="case-section-text">Production-grade multi-agent AI platform consolidating all signals into a single real-time decision layer. Five automated alert pipelines, agent orchestration on LangChain/LangGraph, built-in AI chat assistant. Built all Figma prototypes and ran structured A/B tests across 4 agent response formats.</div>
-        <div class="case-tags-row">
-          <span class="case-tag-sm">Agentic AI</span><span class="case-tag-sm">LangChain</span><span class="case-tag-sm">LangGraph</span><span class="case-tag-sm">Knowledge Graph</span><span class="case-tag-sm">Databricks</span><span class="case-tag-sm">Azure AI</span>
+    <div class="manifest-item">
+      <div class="manifest-body">
+        <div class="manifest-top">
+          <span class="manifest-no">MANIFEST NO. 01 / UPL-2025</span>
+          <span class="stamp">Shipped</span>
         </div>
+        <div class="manifest-title">Multi-Agent AI Executive Intelligence Platform</div>
+        <div class="manifest-org">LangChain · LangGraph · Knowledge Graph · 12-person pod</div>
+        <div class="manifest-label">Problem</div>
+        <div class="manifest-text">Leadership was making calls across 6+ fragmented systems — EXIM, FX, commodity, market news — with no unified real-time view.</div>
+        <div class="manifest-label">What I built</div>
+        <div class="manifest-text">A multi-agent decision layer on LangChain/LangGraph, with voice, mobile, and a chat assistant built into the workflow.</div>
+        <div class="manifest-tags">
+          <span class="manifest-tag">Agentic AI</span><span class="manifest-tag">LangChain</span><span class="manifest-tag">LangGraph</span><span class="manifest-tag">Knowledge Graph</span><span class="manifest-tag">n8n</span><span class="manifest-tag">Lovable</span><span class="manifest-tag">Mobile</span>
+        </div>
+        <a href="https://app.notion.com/p/Multi-Agent-AI-Executive-Intelligence-Platform-39f2756c0a09800f9e4dc3831cee3242?source=copy_link" target="_blank" class="manifest-link">View full case study ↗</a>
       </div>
-      <div class="case-metrics-col">
-        <div class="metric-item"><div class="metric-num accent">72→100</div><div class="metric-desc">Leadership users within 2 quarters</div></div>
-        <div class="metric-item"><div class="metric-num">6+</div><div class="metric-desc">Data systems unified</div></div>
-        <div class="metric-item"><div class="metric-num">5</div><div class="metric-desc">Automated alert pipelines</div></div>
+      <div class="readout-col">
+        <div class="readout-item"><div class="readout-num accent">1,000+</div><div class="readout-desc">Monthly active users — scaled from 100 month-over-month</div></div>
+        <div class="readout-item"><div class="readout-num">6+</div><div class="readout-desc">Fragmented data systems unified</div></div>
+        <div class="readout-item"><div class="readout-num">200+</div><div class="readout-desc">Initial leadership base expanded globally</div></div>
       </div>
     </div>
 
     <!-- 02 -->
-    <div class="case-item">
-      <div class="case-num-big">02</div>
-      <div class="case-body">
-        <div class="case-status status-shipped"><span class="status-dot"></span> Shipped</div>
-        <div class="case-title-big">LLM-Powered Demand Forecasting & Recommendation Engine</div>
-        <div class="case-org-line">UPL Ltd · 2025 · OpenAI GPT · Databricks · PySpark · 12-person pod</div>
-        <div class="case-section-label">Problem</div>
-        <div class="case-section-text">Analysts manually reviewing hundreds of SKU forecasts every cycle with no intelligent filter, no recommendations, errors propagating into stockouts and excess inventory.</div>
-        <div class="case-section-label">What I built</div>
-        <div class="case-section-text">LLM layer on top of statistical models: anomaly detection, plain-language root cause analysis, actionable recommendations with confidence scores, and automated exception routing. Redesigned the end-to-end analyst review workflow.</div>
-        <div class="case-tags-row">
-          <span class="case-tag-sm">LLM</span><span class="case-tag-sm">Demand Forecasting</span><span class="case-tag-sm">PySpark</span><span class="case-tag-sm">Databricks</span><span class="case-tag-sm">Delta Lake</span>
+    <div class="manifest-item">
+      <div class="manifest-body">
+        <div class="manifest-top">
+          <span class="manifest-no">MANIFEST NO. 02 / UPL-2025</span>
+          <span class="stamp">Shipped</span>
         </div>
+        <div class="manifest-title">Business Control Tower</div>
+        <div class="manifest-org">LLM · Databricks · PySpark · 12-person pod (shared)</div>
+        <div class="manifest-label">Problem</div>
+        <div class="manifest-text">Planning across Sales, Marketing, Supply Chain, and Finance was siloed and manual — forecasting errors were tying up working capital.</div>
+        <div class="manifest-label">What I built</div>
+        <div class="manifest-text">One Control Tower unifying all four functions, with an LLM recommendation engine replacing manual forecast review entirely.</div>
+        <div class="manifest-tags">
+          <span class="manifest-tag">LLM</span><span class="manifest-tag">Control Tower</span><span class="manifest-tag">Demand Forecasting</span><span class="manifest-tag">PySpark</span><span class="manifest-tag">Databricks</span><span class="manifest-tag">S&amp;OP</span>
+        </div>
+        <a href="https://app.notion.com/p/Business-Control-Tower-39f2756c0a09805fbc18f99fc4a191e7?source=copy_link" target="_blank" class="manifest-link">View full case study ↗</a>
       </div>
-      <div class="case-metrics-col">
-        <div class="metric-item"><div class="metric-num accent">2M</div><div class="metric-desc">Working capital freed in Q4</div></div>
-        <div class="metric-item"><div class="metric-num accent">30%</div><div class="metric-desc">Planning exceptions cut</div></div>
-        <div class="metric-item"><div class="metric-num">23%</div><div class="metric-desc">Forecast accuracy improvement</div></div>
-        <div class="metric-item"><div class="metric-num">45%</div><div class="metric-desc">Manual review effort reduced</div></div>
+      <div class="readout-col">
+        <div class="readout-item"><div class="readout-num accent">$22M</div><div class="readout-desc">Working capital freed in Q4</div></div>
+        <div class="readout-item"><div class="readout-num accent">30%</div><div class="readout-desc">Planning exceptions cut</div></div>
+        <div class="readout-item"><div class="readout-num">4</div><div class="readout-desc">Functions unified — Sales, Marketing, SC, Finance</div></div>
       </div>
     </div>
 
     <!-- 03 -->
-    <div class="case-item">
-      <div class="case-num-big">03</div>
-      <div class="case-body">
-        <div class="case-status status-poc"><span class="status-dot"></span> In POC</div>
-        <div class="case-title-big">Supply Chain Control Tower</div>
-        <div class="case-org-line">UPL Ltd · 2025 · LangChain · LangGraph · Discovery & POC phase</div>
-        <div class="case-section-label">Problem</div>
-        <div class="case-section-text">Despite two AI products running, supply chain leaders still had no unified end-to-end view — context-switching across systems with no single place to see and prioritize exceptions.</div>
-        <div class="case-section-label">What I'm building</div>
-        <div class="case-section-text">Leading discovery — structured stakeholder interviews across geographies, journey mapping, opportunity sizing, and POC scoping. Proposed architecture connects both AI products as an orchestration layer above existing systems. Managing this alongside 2 production products simultaneously.</div>
-        <div class="case-tags-row">
-          <span class="case-tag-sm">Product Discovery</span><span class="case-tag-sm">User Research</span><span class="case-tag-sm">Control Tower</span><span class="case-tag-sm">POC</span>
+    <div class="manifest-item">
+      <div class="manifest-body">
+        <div class="manifest-top">
+          <span class="manifest-no">MANIFEST NO. 03 / EY-2023</span>
+          <span class="stamp">Shipped</span>
         </div>
+        <div class="manifest-title">AI-Driven Planning Across 12+ Global Markets</div>
+        <div class="manifest-org">Ernst &amp; Young · 2023–2025 · Senior Consultant PM</div>
+        <div class="manifest-label">Problem</div>
+        <div class="manifest-text">Global FMCG clients ran demand planning on siloed manual workflows — no consistent view, chronic forecast inaccuracy.</div>
+        <div class="manifest-label">What I built</div>
+        <div class="manifest-text">AI-driven forecasting products and a repeatable pilot-to-scale playbook, deployed across 12+ markets with pods of ~30.</div>
+        <div class="manifest-tags">
+          <span class="manifest-tag">GTM</span><span class="manifest-tag">User Research</span><span class="manifest-tag">PRDs</span><span class="manifest-tag">A/B Testing</span><span class="manifest-tag">Figma</span><span class="manifest-tag">S&amp;OP</span>
+        </div>
+        <a href="https://app.notion.com/p/AI-Driven-Planning-39f2756c0a0980f88d95e75d13099865?source=copy_link" target="_blank" class="manifest-link">View full case study ↗</a>
       </div>
-      <div class="case-metrics-col">
-        <div class="metric-item"><div class="metric-num">3</div><div class="metric-desc">AI products led simultaneously</div></div>
-        <div class="metric-item"><div class="metric-num accent">Phase 2</div><div class="metric-desc">User research in progress</div></div>
+      <div class="readout-col">
+        <div class="readout-item"><div class="readout-num accent">40%</div><div class="readout-desc">Forecast accuracy improvement</div></div>
+        <div class="readout-item"><div class="readout-num">30%</div><div class="readout-desc">Feature adoption lift</div></div>
+        <div class="readout-item"><div class="readout-num">12+</div><div class="readout-desc">Global markets delivered</div></div>
       </div>
     </div>
 
     <!-- 04 -->
-    <div class="case-item">
-      <div class="case-num-big">04</div>
-      <div class="case-body">
-        <div class="case-status status-shipped"><span class="status-dot"></span> Shipped</div>
-        <div class="case-title-big">AI-Driven Planning Across 12+ Global Markets</div>
-        <div class="case-org-line">Ernst & Young · 2023–2025 · Senior Consultant PM</div>
-        <div class="case-section-label">Problem</div>
-        <div class="case-section-text">Global FMCG clients running demand planning on siloed manual workflows — no consistent view, chronic forecast inaccuracy, no repeatable model to scale improvements across markets.</div>
-        <div class="case-section-label">What I built</div>
-        <div class="case-section-text">AI-driven forecasting products, S&OP dashboard suites, and a repeatable pilot-to-scale launch playbook deployed across 12+ markets. Led cross-functional pods of ~30 people per product line. Ran structured A/B testing to validate a single geography view before full rollout.</div>
-        <div class="case-tags-row">
-          <span class="case-tag-sm">GTM</span><span class="case-tag-sm">User Research</span><span class="case-tag-sm">PRDs</span><span class="case-tag-sm">A/B Testing</span><span class="case-tag-sm">Figma</span><span class="case-tag-sm">S&OP</span>
+    <div class="manifest-item">
+      <div class="manifest-body">
+        <div class="manifest-top">
+          <span class="manifest-no">MANIFEST NO. 04 / CAP-2021</span>
+          <span class="stamp">Shipped</span>
         </div>
+        <div class="manifest-title">Forecasting &amp; Planning Product Transformation</div>
+        <div class="manifest-org">Capgemini · 2021–2023 · Product Owner</div>
+        <div class="manifest-label">Problem</div>
+        <div class="manifest-text">Clients had no real-time lifecycle visibility — planning stayed reactive, teams buried in manual data gathering.</div>
+        <div class="manifest-label">What I built</div>
+        <div class="manifest-text">A decision-support dashboard suite with automated exception flagging, plus the first structured backlog for the planning products.</div>
+        <div class="manifest-tags">
+          <span class="manifest-tag">Product Ownership</span><span class="manifest-tag">Dashboards</span><span class="manifest-tag">Forecasting</span><span class="manifest-tag">Backlog</span>
+        </div>
+        <a href="https://app.notion.com/p/Forecasting-Planning-Product-Transformation-39f2756c0a0980c9abcfde7981005c2e?source=copy_link" target="_blank" class="manifest-link">View full case study ↗</a>
       </div>
-      <div class="case-metrics-col">
-        <div class="metric-item"><div class="metric-num accent">40%</div><div class="metric-desc">Forecast accuracy improvement</div></div>
-        <div class="metric-item"><div class="metric-num">30%</div><div class="metric-desc">Feature adoption lift</div></div>
-        <div class="metric-item"><div class="metric-num">12+</div><div class="metric-desc">Global markets delivered</div></div>
+      <div class="readout-col">
+        <div class="readout-item"><div class="readout-num accent">22%</div><div class="readout-desc">Dashboard adoption</div></div>
+        <div class="readout-item"><div class="readout-num">20%</div><div class="readout-desc">Planning efficiency up</div></div>
+        <div class="readout-item"><div class="readout-num">15%</div><div class="readout-desc">Forecast accuracy up</div></div>
       </div>
     </div>
 
     <!-- 05 -->
-    <div class="case-item">
-      <div class="case-num-big">05</div>
-      <div class="case-body">
-        <div class="case-status status-shipped"><span class="status-dot"></span> Shipped</div>
-        <div class="case-title-big">Forecasting & Planning Product Transformation</div>
-        <div class="case-org-line">Capgemini · 2021–2023 · Product Owner</div>
-        <div class="case-section-label">Problem</div>
-        <div class="case-section-text">Enterprise clients with no real-time lifecycle visibility — planning reactive, forecast accuracy low, teams spending most time on manual data gathering.</div>
-        <div class="case-section-label">What I built</div>
-        <div class="case-section-text">Decision-support dashboard suite with lifecycle tracking, automated exception flagging, and replenishment recommendations. Built the first properly structured product backlog for the planning suite and introduced user story mapping as the primary requirements format.</div>
-        <div class="case-tags-row">
-          <span class="case-tag-sm">Product Ownership</span><span class="case-tag-sm">Dashboards</span><span class="case-tag-sm">Forecasting</span><span class="case-tag-sm">Backlog</span>
+    <div class="manifest-item">
+      <div class="manifest-body">
+        <div class="manifest-top">
+          <span class="manifest-no">MANIFEST NO. 05 / ACN-2017</span>
+          <span class="stamp">Shipped</span>
         </div>
-      </div>
-      <div class="case-metrics-col">
-        <div class="metric-item"><div class="metric-num accent">22%</div><div class="metric-desc">Dashboard adoption</div></div>
-        <div class="metric-item"><div class="metric-num">20%</div><div class="metric-desc">Planning efficiency up</div></div>
-        <div class="metric-item"><div class="metric-num">15%</div><div class="metric-desc">Forecast accuracy up</div></div>
-      </div>
-    </div>
-
-    <!-- 06 -->
-    <div class="case-item">
-      <div class="case-num-big">06</div>
-      <div class="case-body">
-        <div class="case-status status-shipped"><span class="status-dot"></span> Shipped</div>
-        <div class="case-title-big">Planning & Inventory Optimization at Scale</div>
-        <div class="case-org-line">Accenture · 2017–2021 · Senior Business Analyst</div>
-        <div class="case-section-label">Problem</div>
-        <div class="case-section-text">Fragmented planning across 3 distribution hubs and 120+ market locations — chronic stockouts and simultaneous excess inventory from poor forecast accuracy and disconnected processes.</div>
-        <div class="case-section-label">What I built</div>
-        <div class="case-section-text">Unified planning framework with hierarchical forecasting, variable safety stock logic based on demand variability and lead time, and the first integrated KPI dashboards across 120+ locations. Built the supply chain foundation that underpins every AI product I've shipped since.</div>
-        <div class="case-tags-row">
-          <span class="case-tag-sm">Inventory Optimization</span><span class="case-tag-sm">Statistical Forecasting</span><span class="case-tag-sm">S&OP</span><span class="case-tag-sm">Analytics</span>
+        <div class="manifest-title">Planning &amp; Inventory Optimization at Scale</div>
+        <div class="manifest-org">Accenture · 2017–2021 · Senior Business Analyst</div>
+        <div class="manifest-label">Problem</div>
+        <div class="manifest-text">Fragmented planning across 3 hubs and 120+ locations — chronic stockouts and excess inventory happening at once.</div>
+        <div class="manifest-label">What I built</div>
+        <div class="manifest-text">A unified forecasting framework with variable safety stock logic and the first integrated KPI dashboards across the network.</div>
+        <div class="manifest-tags">
+          <span class="manifest-tag">Inventory Optimization</span><span class="manifest-tag">Statistical Forecasting</span><span class="manifest-tag">S&amp;OP</span><span class="manifest-tag">Analytics</span>
         </div>
+        <a href="https://app.notion.com/p/Planning-Inventory-Optimization-at-Scale-39f2756c0a0980e68c41ef30c057a535?source=copy_link" target="_blank" class="manifest-link">View full case study ↗</a>
       </div>
-      <div class="case-metrics-col">
-        <div class="metric-item"><div class="metric-num accent">75%</div><div class="metric-desc">Forecast accuracy achieved</div></div>
-        <div class="metric-item"><div class="metric-num">30%</div><div class="metric-desc">Stock-outs reduced</div></div>
-        <div class="metric-item"><div class="metric-num">120+</div><div class="metric-desc">Markets optimized</div></div>
+      <div class="readout-col">
+        <div class="readout-item"><div class="readout-num accent">75%</div><div class="readout-desc">Forecast accuracy achieved</div></div>
+        <div class="readout-item"><div class="readout-num">30%</div><div class="readout-desc">Stock-outs reduced</div></div>
+        <div class="readout-item"><div class="readout-num">120+</div><div class="readout-desc">Markets optimized</div></div>
       </div>
     </div>
 
@@ -550,51 +663,48 @@ footer a { font-size: 11px; color: var(--green); text-decoration: none; }
 
 <!-- CONTACT -->
 <div class="contact-wrap" id="contact">
-  <div class="contact-avail"><span class="avail-dot"></span> Open to Senior PM & AI PM roles</div>
-  <div class="contact-title"><strong>Let's build</strong> something that matters</div>
+  <div class="contact-avail"><span class="avail-dot"></span> Open to Senior PM &amp; AI PM roles</div>
+  <div class="contact-title">Let's build something that matters</div>
   <p class="contact-sub">Hybrid or remote. Open to Senior PM, AI PM, and Lead PM roles.</p>
   <div class="contact-links">
     <a href="mailto:pritomsreeta.borah22@alumni.iimb.ac.in" class="contact-link">✉ Email</a>
     <a href="https://www.linkedin.com/in/pritomsreetaborah" target="_blank" class="contact-link">in LinkedIn</a>
-    <a href="Pritomsreeta_Borah_Resume.pdf" download class="contact-link">↓ Resume</a>
+    <a href="Pritomsreeta_Borah_Resume.pdf" download class="contact-link">⇩ Resume</a>
   </div>
 </div>
 
-<!-- SNAKE GAME -->
-<div style="border-top: 1px solid var(--border); background: var(--cream);">
-<div style="max-width: 1100px; margin: 0 auto; padding: 64px 64px;">
-  <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--green); margin-bottom: 16px;">04 — Just for fun</div>
-  <div style="font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 400; letter-spacing: -0.01em; line-height: 1.15; margin-bottom: 8px;"><strong>Take a break.</strong> Play Snake.</div>
-  <p style="color: var(--muted); font-size: 1rem; max-width: 520px; line-height: 1.8; margin-bottom: 40px; font-weight: 300;">Even PMs need a breather. Use arrow keys or WASD to play. Don't let the snake eat itself — unlike most product roadmaps.</p>
+<!-- SNAKE GAME (radar reskin) -->
+<div style="border-top: 1px solid var(--border); background: var(--charcoal); position:relative; z-index:1;">
+<div style="max-width: 1180px; margin: 0 auto; padding: 72px 56px;">
+  <div class="eyebrow">⟦ 04 ⟧ Off duty</div>
+  <div class="section-title" style="margin-bottom: 8px;">Radar's clear. Play Snake.</div>
+  <p class="section-sub">Even ops managers need a breather. Arrow keys or WASD. Don't let the snake eat itself — unlike most product roadmaps.</p>
 
   <div style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
-    <!-- Score & Controls -->
-    <div style="display: flex; justify-content: space-between; align-items: center; width: 400px; max-width: 100%;">
-      <div style="font-size: 13px; color: var(--muted);">Score: <span id="snake-score" style="font-weight: 600; color: var(--ink);">0</span></div>
-      <div style="font-size: 13px; color: var(--muted);">Best: <span id="snake-best" style="font-weight: 600; color: var(--green);">0</span></div>
-      <button id="snake-btn" onclick="snakeToggle()" style="background: var(--green); color: #fff; border: none; padding: 8px 20px; border-radius: 6px; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; cursor: pointer; font-family: 'Inter', sans-serif;">▶ Start</button>
+    <div style="display: flex; justify-content: space-between; align-items: center; width: 400px; max-width: 100%; font-family:'JetBrains Mono',monospace;">
+      <div style="font-size: 12px; color: var(--muted);">SCORE: <span id="snake-score" style="font-weight: 700; color: var(--ivory);">0</span></div>
+      <div style="font-size: 12px; color: var(--muted);">BEST: <span id="snake-best" style="font-weight: 700; color: var(--amber);">0</span></div>
+      <button id="snake-btn" onclick="snakeToggle()" style="background: var(--amber); color: var(--charcoal); border: none; padding: 8px 18px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform:uppercase; cursor: pointer; font-family: 'JetBrains Mono', monospace;">▶ Start</button>
     </div>
 
-    <!-- Canvas -->
     <canvas id="snake-canvas" width="400" height="400"
-      style="border: 1.5px solid var(--border-2); border-radius: 8px; background: var(--cream-2); display: block; max-width: 100%;">
+      style="border: 1px solid var(--border-2); background: var(--panel); display: block; max-width: 100%;">
     </canvas>
 
-    <!-- Mobile controls -->
     <div style="display: grid; grid-template-columns: repeat(3, 44px); gap: 6px; margin-top: 8px;">
       <div></div>
-      <button onclick="snakeDir(0,-1)" style="width:44px;height:44px;border:1.5px solid var(--border-2);border-radius:6px;background:var(--cream-2);font-size:16px;cursor:pointer;">↑</button>
+      <button onclick="snakeDir(0,-1)" style="width:44px;height:44px;border:1px solid var(--border-2);background:var(--panel);color:var(--ivory);font-size:16px;cursor:pointer;">↑</button>
       <div></div>
-      <button onclick="snakeDir(-1,0)" style="width:44px;height:44px;border:1.5px solid var(--border-2);border-radius:6px;background:var(--cream-2);font-size:16px;cursor:pointer;">←</button>
-      <button onclick="snakeDir(0,1)" style="width:44px;height:44px;border:1.5px solid var(--border-2);border-radius:6px;background:var(--cream-2);font-size:16px;cursor:pointer;">↓</button>
-      <button onclick="snakeDir(1,0)" style="width:44px;height:44px;border:1.5px solid var(--border-2);border-radius:6px;background:var(--cream-2);font-size:16px;cursor:pointer;">→</button>
+      <button onclick="snakeDir(-1,0)" style="width:44px;height:44px;border:1px solid var(--border-2);background:var(--panel);color:var(--ivory);font-size:16px;cursor:pointer;">←</button>
+      <button onclick="snakeDir(0,1)" style="width:44px;height:44px;border:1px solid var(--border-2);background:var(--panel);color:var(--ivory);font-size:16px;cursor:pointer;">↓</button>
+      <button onclick="snakeDir(1,0)" style="width:44px;height:44px;border:1px solid var(--border-2);background:var(--panel);color:var(--ivory);font-size:16px;cursor:pointer;">→</button>
     </div>
   </div>
 </div>
 </div>
 
 <script>
-// SNAKE GAME
+// SNAKE GAME — radar palette
 const COLS = 20, ROWS = 20, CELL = 20;
 let snake, dir, nextDir, food, score, best = 0, running = false, paused = false, loop;
 
@@ -604,13 +714,13 @@ const scoreEl = document.getElementById('snake-score');
 const bestEl = document.getElementById('snake-best');
 const btn = document.getElementById('snake-btn');
 
-const C_BG = '#EFE9DE';
-const C_GRID = 'rgba(28,25,23,0.05)';
-const C_SNAKE_HEAD = '#1A6B3C';
-const C_SNAKE = '#2E8B57';
-const C_FOOD = '#C0392B';
-const C_TEXT = '#1C1917';
-const C_MUTED = '#78716C';
+const C_GRID = 'rgba(28,26,21,0.08)';
+const C_SNAKE_HEAD = '#1F6B3D';
+const C_SNAKE = '#3D8B5C';
+const C_FOOD = '#A6392F';
+const C_TEXT = '#1C1A15';
+const C_MUTED = '#5C5648';
+const C_OVERLAY = 'rgba(235,228,211,0.92)';
 
 function initGame() {
   snake = [{x:10, y:10},{x:9,y:10},{x:8,y:10}];
@@ -632,52 +742,43 @@ function placeFood() {
 
 function drawBoard() {
   ctx.clearRect(0,0,canvas.width,canvas.height);
-
-  // Grid
   ctx.strokeStyle = C_GRID;
   ctx.lineWidth = 0.5;
-  for(let i=0;i<=COLS;i++){
-    ctx.beginPath(); ctx.moveTo(i*CELL,0); ctx.lineTo(i*CELL,canvas.height); ctx.stroke();
-  }
-  for(let j=0;j<=ROWS;j++){
-    ctx.beginPath(); ctx.moveTo(0,j*CELL); ctx.lineTo(canvas.width,j*CELL); ctx.stroke();
-  }
+  for(let i=0;i<=COLS;i++){ ctx.beginPath(); ctx.moveTo(i*CELL,0); ctx.lineTo(i*CELL,canvas.height); ctx.stroke(); }
+  for(let j=0;j<=ROWS;j++){ ctx.beginPath(); ctx.moveTo(0,j*CELL); ctx.lineTo(canvas.width,j*CELL); ctx.stroke(); }
 
-  // Food
   ctx.fillStyle = C_FOOD;
   ctx.beginPath();
   ctx.arc(food.x*CELL+CELL/2, food.y*CELL+CELL/2, CELL/2-2, 0, Math.PI*2);
   ctx.fill();
 
-  // Snake
   snake.forEach((s, i) => {
     ctx.fillStyle = i === 0 ? C_SNAKE_HEAD : C_SNAKE;
     ctx.globalAlpha = i === 0 ? 1 : Math.max(0.4, 1 - i * 0.03);
     const pad = i === 0 ? 1 : 2;
     ctx.beginPath();
-    ctx.roundRect(s.x*CELL+pad, s.y*CELL+pad, CELL-pad*2, CELL-pad*2, i===0?5:3);
+    ctx.roundRect(s.x*CELL+pad, s.y*CELL+pad, CELL-pad*2, CELL-pad*2, i===0?4:2);
     ctx.fill();
   });
   ctx.globalAlpha = 1;
 
-  // Eyes on head
   const h = snake[0];
-  ctx.fillStyle = '#fff';
+  ctx.fillStyle = '#F5F0E4';
   const ex = dir.x === 1 ? 13 : dir.x === -1 ? 5 : 7;
   const ey = dir.y === 1 ? 13 : dir.y === -1 ? 5 : 7;
-  ctx.beginPath(); ctx.arc(h.x*CELL+ex, h.y*CELL+ey, 2.5, 0, Math.PI*2); ctx.fill();
-  ctx.beginPath(); ctx.arc(h.x*CELL+(CELL-ex), h.y*CELL+(dir.y!==0?ey:CELL-ey), 2.5, 0, Math.PI*2); ctx.fill();
+  ctx.beginPath(); ctx.arc(h.x*CELL+ex, h.y*CELL+ey, 2.2, 0, Math.PI*2); ctx.fill();
+  ctx.beginPath(); ctx.arc(h.x*CELL+(CELL-ex), h.y*CELL+(dir.y!==0?ey:CELL-ey), 2.2, 0, Math.PI*2); ctx.fill();
 
   if(!running && !paused) {
-    ctx.fillStyle = 'rgba(239,233,222,0.85)';
+    ctx.fillStyle = C_OVERLAY;
     ctx.fillRect(0,0,canvas.width,canvas.height);
     ctx.fillStyle = C_TEXT;
-    ctx.font = 'bold 18px Inter, sans-serif';
+    ctx.font = 'bold 16px JetBrains Mono, monospace';
     ctx.textAlign = 'center';
-    ctx.fillText('Press ▶ Start to play', canvas.width/2, canvas.height/2 - 10);
-    ctx.font = '13px Inter, sans-serif';
+    ctx.fillText('PRESS ▶ START TO PLAY', canvas.width/2, canvas.height/2 - 10);
+    ctx.font = '11px JetBrains Mono, monospace';
     ctx.fillStyle = C_MUTED;
-    ctx.fillText('Arrow keys or WASD to move', canvas.width/2, canvas.height/2 + 16);
+    ctx.fillText('ARROW KEYS OR WASD', canvas.width/2, canvas.height/2 + 16);
     ctx.textAlign = 'left';
   }
 }
@@ -685,14 +786,9 @@ function drawBoard() {
 function gameStep() {
   dir = {...nextDir};
   const head = {x: snake[0].x + dir.x, y: snake[0].y + dir.y};
-
-  // Wall collision
   if(head.x<0||head.x>=COLS||head.y<0||head.y>=ROWS) { gameOver(); return; }
-  // Self collision
   if(snake.some(s=>s.x===head.x&&s.y===head.y)) { gameOver(); return; }
-
   snake.unshift(head);
-
   if(head.x===food.x && head.y===food.y) {
     score++;
     scoreEl.textContent = score;
@@ -708,49 +804,40 @@ function gameOver() {
   running = false;
   clearInterval(loop);
   btn.textContent = '↺ Restart';
-
-  ctx.fillStyle = 'rgba(239,233,222,0.9)';
+  ctx.fillStyle = C_OVERLAY;
   ctx.fillRect(0,0,canvas.width,canvas.height);
   ctx.fillStyle = C_TEXT;
-  ctx.font = 'bold 22px Playfair Display, Georgia, serif';
+  ctx.font = 'bold 20px Space Grotesk, sans-serif';
   ctx.textAlign = 'center';
-  ctx.fillText('Game Over', canvas.width/2, canvas.height/2 - 24);
-  ctx.font = '14px Inter, sans-serif';
+  ctx.fillText('Signal Lost', canvas.width/2, canvas.height/2 - 24);
+  ctx.font = '12px JetBrains Mono, monospace';
   ctx.fillStyle = C_MUTED;
-  ctx.fillText('Score: ' + score, canvas.width/2, canvas.height/2 + 4);
-  ctx.fillText('Press ↺ Restart to try again', canvas.width/2, canvas.height/2 + 26);
+  ctx.fillText('SCORE: ' + score, canvas.width/2, canvas.height/2 + 4);
+  ctx.fillText('PRESS ↺ RESTART TO RETRY', canvas.width/2, canvas.height/2 + 26);
   ctx.textAlign = 'left';
 }
 
 function snakeToggle() {
   if(!running) {
     initGame();
-    running = true;
-    paused = false;
+    running = true; paused = false;
     btn.textContent = '⏸ Pause';
-    const speed = Math.max(80, 150 - score * 2);
     loop = setInterval(() => { if(running && !paused) gameStep(); }, 120);
   } else if(!paused) {
-    paused = true;
-    btn.textContent = '▶ Resume';
+    paused = true; btn.textContent = '▶ Resume';
   } else {
-    paused = false;
-    btn.textContent = '⏸ Pause';
+    paused = false; btn.textContent = '⏸ Pause';
   }
 }
 
 function snakeDir(x, y) {
-  // Prevent reversing
   if(x !== 0 && dir.x !== 0) return;
   if(y !== 0 && dir.y !== 0) return;
   nextDir = {x, y};
 }
 
-// Keyboard controls
 document.addEventListener('keydown', e => {
-  if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','w','a','s','d'].includes(e.key)) {
-    e.preventDefault();
-  }
+  if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','w','a','s','d'].includes(e.key)) e.preventDefault();
   switch(e.key) {
     case 'ArrowUp': case 'w': snakeDir(0,-1); break;
     case 'ArrowDown': case 's': snakeDir(0,1); break;
@@ -759,41 +846,81 @@ document.addEventListener('keydown', e => {
     case ' ': snakeToggle(); break;
   }
 });
-
-// Init board on load
 initGame();
 </script>
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2025 Pritomsreeta Borah</p>
+  <p>© 2025 PRITOMSREETA BORAH · ALL SYSTEMS NOMINAL</p>
   <a href="https://pritomsreeta.github.io">pritomsreeta.github.io</a>
 </footer>
 
 <script>
-function animateCount(id, target, duration) {
-  const el = document.getElementById(id);
-  let start = 0;
-  const step = target / (duration / 16);
-  const timer = setInterval(() => {
-    start = Math.min(start + step, target);
-    el.textContent = Math.floor(start);
-    if (start >= target) clearInterval(timer);
-  }, 16);
+// SPLIT-FLAP BOARD ENGINE
+function buildFlapGroup(el) {
+  const pad = parseInt(el.dataset.pad, 10);
+  el.innerHTML = '';
+  el._chars = [];
+  for (let i = 0; i < pad; i++) {
+    const c = document.createElement('span');
+    c.className = 'flap-char';
+    c.textContent = '0';
+    el.appendChild(c);
+    el._chars.push(c);
+  }
+  el._current = '0'.repeat(pad);
 }
-const obs = new IntersectionObserver((entries) => {
+
+function setFlapValue(el, valueStr) {
+  const padded = valueStr.padStart(el._chars.length, '0');
+  for (let i = 0; i < el._chars.length; i++) {
+    const oldChar = el._current[i];
+    const newChar = padded[i];
+    if (oldChar !== newChar) {
+      const cell = el._chars[i];
+      cell.classList.remove('flip');
+      void cell.offsetWidth; // reflow to restart animation
+      cell.classList.add('flip');
+      setTimeout(() => { cell.textContent = newChar; }, 100);
+    }
+  }
+  el._current = padded;
+}
+
+function animateFlapCount(el, target, duration) {
+  buildFlapGroup(el);
+  const steps = Math.min(target, 40) || 1;
+  const stepTime = duration / steps;
+  let current = 0;
+  const increment = target / steps;
+  const timer = setInterval(() => {
+    current += increment;
+    const val = Math.min(Math.round(current), target);
+    setFlapValue(el, String(val));
+    if (val >= target) clearInterval(timer);
+  }, stepTime);
+}
+
+const boardObs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
-      setTimeout(() => animateCount('n1', 22, 1200), 0);
-      setTimeout(() => animateCount('n2', 40, 1400), 200);
-      setTimeout(() => animateCount('n3', 12, 1000), 400);
-      setTimeout(() => animateCount('n4', 10, 900), 600);
-      obs.disconnect();
+      const groups = [
+        {id: 'fg1', target: 22, duration: 1100, delay: 0},
+        {id: 'fg2', target: 1000, duration: 1500, delay: 150},
+        {id: 'fg3', target: 12, duration: 900, delay: 300},
+        {id: 'fg4', target: 10, duration: 800, delay: 450},
+      ];
+      groups.forEach(g => {
+        const el = document.getElementById(g.id);
+        setTimeout(() => animateFlapCount(el, g.target, g.duration), g.delay);
+      });
+      boardObs.disconnect();
     }
   });
 }, { threshold: 0.3 });
-const ticker = document.querySelector('.ticker');
-if (ticker) obs.observe(ticker);
+
+const boardFrame = document.querySelector('.board-frame');
+if (boardFrame) boardObs.observe(boardFrame);
 </script>
 </body>
 </html>
